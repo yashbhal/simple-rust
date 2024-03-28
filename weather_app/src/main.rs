@@ -7,7 +7,7 @@ use reqwest::blocking::Response;
 mod setup;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let (lat, lon) = print_menu()?;
+    let (lat, lon) = get_location()?;
     let api_key = get_api_key()?;
     let url = construct_url(lat, lon, api_key)?;
     let response = reqwest::blocking::get(url)?;
@@ -21,7 +21,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn print_menu() -> Result<(String, String), Box<dyn Error>> {
+fn get_location() -> Result<(String, String), Box<dyn Error>> {
     println!("Please enter a latitude:");
     let lat = read_input("latitude")?;
 
