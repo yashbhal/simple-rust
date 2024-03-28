@@ -1,18 +1,20 @@
+use serde::{Deserialize, Serialize};
+
 #[derive(Deserialize)]
-struct WeatherData 
+pub struct WeatherData 
 {
     main: Main,
     weather: Vec<Weather>,
 }
 
 #[derive(Deserialize)]
-struct Main
+pub struct Main
 {
     temp: f64,
 }
 
 #[derive(Deserialize)]
-struct Weather
+pub struct Weather
 {
     description: String,
 }

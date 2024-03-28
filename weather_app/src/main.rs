@@ -2,6 +2,8 @@ use reqwest;
 use std::env;
 use serde_json::Value;
 use std::error::Error;
+// mod setup;
+// use setup::WeatherData;
 
 fn main() -> Result<(), Box<dyn Error>>
 {
@@ -23,6 +25,7 @@ fn main() -> Result<(), Box<dyn Error>>
         let json_response: Value = serde_json::from_str(&body)?;
 
         println!("Response: {}", json_response);
+        parse_weather_data(json_response);
     }
     else
     {
@@ -30,4 +33,10 @@ fn main() -> Result<(), Box<dyn Error>>
     }
 
     Ok(())
+}
+
+fn parse_weather_data(json_response: Value)
+{
+    let temperature = json_response["main"]["temp"].as_f64().unwrap_or_default();
+    println!("Temperature: {} K", temperature);
 }
