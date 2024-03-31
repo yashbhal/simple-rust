@@ -17,7 +17,7 @@ https://doc.rust-lang.org/stable/book/ch01-01-installation.html
     cargo -- version
 ```
 
-- Run any of the programs by entering a programs folder and using the command below in terminal:
+- Run any of the programs by entering a programs folder and using the command below in terminal
 
 ```bash
     cargo run
